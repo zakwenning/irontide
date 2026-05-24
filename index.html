@@ -463,7 +463,8 @@
   }
   .yo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
   .yo-spec { font-size: 0.6rem; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 2px; }
-  .yo-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold); }
+  .yo-desc { font-size: 0.65rem; color: var(--text-muted); line-height: 1.7; margin-top: 5px; }
+  .yo-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--gold); flex-shrink: 0; margin-left: 12px; }
 
   /* Summary panel */
   .booking-summary {
@@ -734,10 +735,10 @@
     <span class="nav-brand-text">Iron Tide<br><span class="nav-brand-sub">Charters</span></span>
   </a>
   <ul class="nav-links">
-    <li><a href="#fleet">The Fleet</a></li>
-    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#fleet">Vessel</a></li>
+    <li><a href="#experiences">Charters</a></li>
     <li><a href="#testimonials">Reviews</a></li>
-    <li><a href="#captain">The Captain</a></li>
+    <li><a href="#captain">Captain</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Reserve Now</button>
@@ -779,7 +780,7 @@
     <p class="hero-sub">Washington's premier private yacht charter experience. From sunset cocktail cruises past the monuments to overnight escapes on the Chesapeake — every voyage is crafted around you.</p>
     <div class="hero-actions">
       <a href="#booking" class="btn-primary">Book Your Charter</a>
-      <a href="#fleet" class="btn-ghost">Explore the Fleet</a>
+      <a href="#fleet" class="btn-ghost">Explore Experiences</a>
     </div>
   </div>
   <div class="hero-scroll">
@@ -817,7 +818,7 @@
         <div class="yacht-card-footer"><div class="yacht-card-desc">The perfect introduction to the Potomac. Cruise past the monuments, Kennedy Center, and Georgetown waterfront under open skies. Ideal for families, first-timers, and out-of-town guests.</div>
         <div class="yacht-card-price">
           <div>
-            <div class="price-amount">$800</div></div>
+            <div class="price-amount">$900</div></div>
             <div class="price-unit">per charter</div>
           </div>
           <button class="card-btn" onclick="selectYacht('Daytime Cruise · Ethel Jane', 800)">Reserve</button>
@@ -836,7 +837,7 @@
       <div class="yacht-card-overlay"></div>
       <div class="yacht-card-content">
         <div class="yacht-card-header"><div class="yacht-card-tag">Most Popular</div>
-        <div class="yacht-card-name">Monument Sunset Cruise</div>
+        <div class="yacht-card-name">Monument Sunset</div>
         <div class="yacht-card-specs">
           <span>3 Hours</span>
           <span>Up to 8 Guests</span>
@@ -845,7 +846,7 @@
         <div class="yacht-card-footer"><div class="yacht-card-desc">Glide past the Lincoln Memorial, Jefferson, and Washington Monument as they illuminate the Potomac at dusk. Champagne and charcuterie included. The classic Iron Tide experience.</div>
         <div class="yacht-card-price">
           <div>
-            <div class="price-amount">$950</div></div>
+            <div class="price-amount">$1,050</div></div>
             <div class="price-unit">per charter</div>
           </div>
           <button class="card-btn" onclick="selectYacht('Monument Sunset Cruise · Ethel Jane', 950)">Reserve</button>
@@ -863,8 +864,8 @@
       </svg>
       <div class="yacht-card-overlay"></div>
       <div class="yacht-card-content">
-        <div class="yacht-card-header"><div class="yacht-card-tag">Girls Trip · Celebrations</div>
-        <div class="yacht-card-name">Golden Hour Cruise</div>
+        <div class="yacht-card-header"><div class="yacht-card-tag">Celebrations</div>
+        <div class="yacht-card-name">Golden Hour</div>
         <div class="yacht-card-specs">
           <span>4 Hours</span>
           <span>Up to 8 Guests</span>
@@ -873,7 +874,7 @@
         <div class="yacht-card-footer"><div class="yacht-card-desc">Late afternoon into dusk — the Potomac at its most beautiful. Prosecco, curated playlist, golden light on the monuments. The go-to for birthdays, bachelorettes, and celebrations that deserve more than three hours.</div>
         <div class="yacht-card-price">
           <div>
-            <div class="price-amount">$1,150</div></div>
+            <div class="price-amount">$1,200</div></div>
             <div class="price-unit">per charter</div>
           </div>
           <button class="card-btn" onclick="selectYacht('Golden Hour Cruise · Ethel Jane', 1150)">Reserve</button>
@@ -906,7 +907,7 @@
         <div class="yacht-card-footer"><div class="yacht-card-desc">Bring your own spread or let us arrange catering pick-up from The Wharf — DC's best waterfront restaurants are steps from the dock. A festive, social evening on the water with the city lights as your backdrop.</div>
         <div class="yacht-card-price">
           <div>
-            <div class="price-amount">$1,500</div></div>
+            <div class="price-amount">$1,600</div></div>
             <div class="price-unit">per charter</div>
           </div>
           <button class="card-btn" onclick="selectYacht('Dinner Cruise · Ethel Jane', 1500)">Reserve</button>
@@ -934,7 +935,7 @@
         <div class="yacht-card-footer"><div class="yacht-card-desc">Head south into quieter waters toward Alexandria or Mount Vernon, anchor for a swim, and enjoy a catered lunch on deck. Unhurried, entirely yours, and a world away from the capital.</div>
         <div class="yacht-card-price">
           <div>
-            <div class="price-amount">$1,800</div></div>
+            <div class="price-amount">$1,600</div></div>
             <div class="price-unit">per charter</div>
           </div>
           <button class="card-btn" onclick="selectYacht('Potomac Escape · Ethel Jane', 1800)">Reserve</button>
@@ -953,7 +954,7 @@
       <div class="yacht-card-overlay"></div>
       <div class="yacht-card-content">
         <div class="yacht-card-header"><div class="yacht-card-tag">Signature · Intimate</div>
-        <div class="yacht-card-name">Chef's Table on the Water</div>
+        <div class="yacht-card-name">Chef's Table</div>
         <div class="yacht-card-specs">
           <span>4 Hours</span>
           <span>2–6 Guests</span>
@@ -1093,7 +1094,7 @@
             <span class="step-num">1</span>Details
           </div>
           <div class="step" id="step2">
-            <span class="step-num">2</span>Vessel
+            <span class="step-num">2</span>Charter
           </div>
           <div class="step" id="step3">
             <span class="step-num">3</span>Payment
@@ -1102,46 +1103,29 @@
 
         <!-- Panel 1: Date & Details -->
         <div class="form-panel active" id="panel1">
-          <div class="form-row">
-            <div class="form-group">
+          <div class="form-group">
               <label>Charter Date</label>
-              <input type="date" id="depDate" min="">
+              <input type="date" id="depDate" min="" style="max-width:300px;">
             </div>
-            <div class="form-group">
-              <label>Return / End Date</label>
-              <input type="date" id="retDate" min="">
-            </div>
-          </div>
           <div class="form-row">
             <div class="form-group">
               <label>Number of Guests</label>
               <select id="guests">
-                <option value="">Select guests</option>
-                <option>2 guests</option>
+                <option value="">Select number of guests</option>
+                <option>1–2 guests</option>
                 <option>3–4 guests</option>
                 <option>5–6 guests</option>
-                <option>7–8 guests</option>
-                <option>9–12 guests</option>
+                <option>7–8 guests (max)</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Charter Type</label>
-              <select id="charterType">
-                <option value="">Select type</option>
-                <option>Sunset Soirée (3 hrs)</option>
-                <option>Full Day</option>
-                <option>Overnight Voyage</option>
-                <option>Multi-Day</option>
-                <option>Private Event</option>
-              </select>
-            </div>
+            
           </div>
           <div class="form-group full">
             <label>Special Requests</label>
             <textarea placeholder="Catering preferences, celebrations, accessibility needs…"></textarea>
           </div>
           <div class="form-nav">
-            <button class="btn-form-next" onclick="goToStep(2)">Continue to Vessel Selection →</button>
+            <button class="btn-form-next" onclick="goToStep(2)">Continue to Charter Selection →</button>
           </div>
         </div>
 
@@ -1223,11 +1207,15 @@
           <div class="booking-summary" id="bookingSummary">
             <div class="summary-title">Booking Summary</div>
             <div class="summary-row">
-              <span class="summary-label">Vessel</span>
+              <span class="summary-label">Charter</span>
               <span id="sum-vessel">—</span>
             </div>
             <div class="summary-row">
-              <span class="summary-label">Dates</span>
+              <span class="summary-label">Vessel</span>
+              <span>Ethel Jane</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-label">Charter Date</span>
               <span id="sum-dates">—</span>
             </div>
             <div class="summary-row">
@@ -1551,7 +1539,6 @@
   // Set min dates
   const today = new Date().toISOString().split('T')[0];
   document.getElementById('depDate').min = today;
-  document.getElementById('retDate').min = today;
 
   // Form state
   let selectedVessel = null;
@@ -1592,17 +1579,11 @@
 
   function updateSummary() {
     const dep = document.getElementById('depDate').value;
-    const ret = document.getElementById('retDate').value;
     const guests = document.getElementById('guests').value;
-    let days = 1;
-    if (dep && ret) {
-      const d1 = new Date(dep), d2 = new Date(ret);
-      days = Math.max(1, Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24)));
-    }
-    const total = selectedPrice * days;
+    const total = selectedPrice;
     const deposit = Math.round(total * 0.25);
     document.getElementById('sum-vessel').textContent = selectedVessel || '—';
-    document.getElementById('sum-dates').textContent = dep && ret ? dep + ' → ' + ret + ' (' + days + 'd)' : '—';
+    document.getElementById('sum-dates').textContent = dep ? dep : '—';
     document.getElementById('sum-guests').textContent = guests || '—';
     document.getElementById('sum-fee').textContent = total ? '$' + total.toLocaleString() : '—';
     document.getElementById('sum-deposit').textContent = deposit ? '$' + deposit.toLocaleString() : '—';
