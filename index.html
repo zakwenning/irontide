@@ -110,7 +110,7 @@
     content: '';
     position: absolute; inset: 0;
     background: 
-      linear-gradient(160deg, rgba(10,15,30,0.93) 0%, rgba(10,15,30,0.88) 50%, rgba(10,15,30,0.90) 100%),
+      linear-gradient(160deg, rgba(10,15,30,0.82) 0%, rgba(10,15,30,0.68) 50%, rgba(10,15,30,0.78) 100%),
       radial-gradient(ellipse at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 60%);
   }
 
@@ -439,6 +439,17 @@
     transition: border-color 0.3s, background 0.3s;
     outline: none; cursor: none;
     -webkit-appearance: none; appearance: none;
+  }
+  input[type="date"] {
+    cursor: pointer;
+    color-scheme: dark;
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    opacity: 0.8;
+    width: 18px;
+    height: 18px;
   }
   input:focus, select:focus, textarea:focus {
     border-color: var(--gold);
@@ -821,7 +832,7 @@
             <div class="price-amount">$900</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="selectYacht('Daytime Cruise · Ethel Jane', 800)">Reserve</button>
+          <button class="card-btn" onclick="window.open('https://buy.stripe.com/6oU3cv84j1ls4PL4RV8k800', '_blank')">Reserve</button>
         </div>
       </div>
     </div>
@@ -849,7 +860,7 @@
             <div class="price-amount">$1,050</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="selectYacht('Monument Sunset Cruise · Ethel Jane', 950)">Reserve</button>
+          <button class="card-btn" onclick="window.open('https://buy.stripe.com/7sYaEXbgv2pw2HDbgj8k801', '_blank')">Reserve</button>
         </div>
       </div>
     </div>
@@ -877,7 +888,7 @@
             <div class="price-amount">$1,200</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="selectYacht('Golden Hour Cruise · Ethel Jane', 1150)">Reserve</button>
+          <button class="card-btn" onclick="window.open('https://buy.stripe.com/28E9AT70f7JQ4PL3NR8k803', '_blank')">Reserve</button>
         </div>
       </div>
     </div>
@@ -910,7 +921,7 @@
             <div class="price-amount">$1,600</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="selectYacht('Dinner Cruise · Ethel Jane', 1500)">Reserve</button>
+          <button class="card-btn" onclick="window.open('https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802', '_blank')">Reserve</button>
         </div>
       </div>
     </div>
@@ -938,7 +949,7 @@
             <div class="price-amount">$1,600</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="selectYacht('Potomac Escape · Ethel Jane', 1800)">Reserve</button>
+          <button class="card-btn" onclick="window.open('https://buy.stripe.com/aFabJ1doDaW2cid7038k805', '_blank')">Reserve</button>
         </div>
       </div>
     </div>
@@ -966,7 +977,7 @@
             <div class="price-amount">$2,200</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="selectYacht('Chef's Table · Ethel Jane', 2200)">Reserve</button>
+          <button class="card-btn" onclick="window.open('https://buy.stripe.com/cNifZhfwLd4a2HD1FJ8k804', '_blank')">Reserve</button>
         </div>
       </div>
     </div>
@@ -1111,7 +1122,7 @@
             <div class="form-group">
               <label>Number of Guests</label>
               <select id="guests">
-                <option value="">Select number of guests</option>
+                <option value="">Select number</option>
                 <option>1–2 guests</option>
                 <option>3–4 guests</option>
                 <option>5–6 guests</option>
@@ -1590,8 +1601,21 @@
   }
 
   function submitBooking() {
-    document.getElementById('formContent').style.display = 'none';
-    document.getElementById('confirmation').classList.add('show');
+    var stripeLinks = {
+      'Daytime Cruise · Ethel Jane': 'https://buy.stripe.com/6oU3cv84j1ls4PL4RV8k800',
+      'Monument Sunset · Ethel Jane': 'https://buy.stripe.com/7sYaEXbgv2pw2HDbgj8k801',
+      'Golden Hour · Ethel Jane': 'https://buy.stripe.com/28E9AT70f7JQ4PL3NR8k803',
+      'Dinner Cruise · Ethel Jane': 'https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802',
+      'Potomac Escape · Ethel Jane': 'https://buy.stripe.com/aFabJ1doDaW2cid7038k805',
+      'Chefs Table · Ethel Jane': 'https://buy.stripe.com/cNifZhfwLd4a2HD1FJ8k804'
+    };
+    var link = stripeLinks[selectedVessel];
+    if (link) {
+      window.open(link, '_blank');
+    } else {
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('confirmation').classList.add('show');
+    }
   }
 
   // Gallery
