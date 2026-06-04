@@ -1248,9 +1248,12 @@
           <input type="text" placeholder="Alexandra Hartwell" style="margin-bottom: 20px;">
 
           <label>Card Number</label>
-          <div class="stripe-element">
-            <span class="stripe-label">•••• •••• •••• ••••</span>
-            <span class="stripe-badge">Stripe Secured</span>
+          <div style="position:relative;">
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" 
+              maxlength="19"
+              oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(.{4})/g,'$1 ').trim()"
+              style="width:100%; padding-right:140px; letter-spacing:0.1em;">
+            <span class="stripe-badge" style="position:absolute; right:12px; top:50%; transform:translateY(-50%);">Stripe Secured</span>
           </div>
 
           <div class="form-row" style="gap:12px; margin-bottom: 0;">
