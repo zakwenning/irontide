@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Washington DC's premier private luxury boat charter on the Potomac River. Sunset cruises, golden hour sails, dinner cruises and more aboard Ethel Jane. Book your charter today.">
+
+<!-- Open Graph / Social Media Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://irontidecharters.com">
+<meta property="og:title" content="Iron Tide Charters — Private Luxury Charters on the Potomac">
+<meta property="og:description" content="Washington DC's premier private boat charter. Sunset cruises, golden hour sails, dinner cruises and Chef's Table experiences aboard Ethel Jane on the Potomac River.">
+<meta property="og:image" content="https://irontidecharters.com/preview.jpg">
+<meta property="og:site_name" content="Iron Tide Charters">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Iron Tide Charters — Private Luxury Charters on the Potomac">
+<meta name="twitter:description" content="Washington DC's premier private boat charter. Sunset cruises, golden hour sails, dinner cruises aboard Ethel Jane.">
+<meta name="twitter:image" content="https://irontidecharters.com/preview.jpg">
 <title>AZURE — Private Charters · Washington, DC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -83,6 +98,13 @@
   .nav-links a:hover { color: var(--gold); }
   .nav-links a:hover::after { width: 100%; }
 
+  .nav-phone {
+    color: var(--cream); text-decoration: none;
+    font-size: 0.72rem; letter-spacing: 0.15em; font-weight: 500;
+    transition: color 0.3s; white-space: nowrap;
+  }
+  .nav-phone:hover { color: var(--gold); }
+  @media (max-width: 700px) { .nav-phone { display: none; } }
   .nav-cta {
     background: var(--gold); border: none;
     color: var(--navy); padding: 12px 28px;
@@ -752,7 +774,10 @@
     <li><a href="#captain">Captain</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Reserve Now</button>
+  <div style="display:flex; align-items:center; gap:20px;">
+    <a href="tel:8132941234" class="nav-phone">(813) 294-1234</a>
+    <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Reserve Now</button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -793,6 +818,7 @@
       <a href="#booking" class="btn-primary">Book Your Charter</a>
       <a href="#fleet" class="btn-ghost">Explore Experiences</a>
     </div>
+    <p style="margin-top: 28px; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--gold-light); opacity: 0; animation: fadeUp 1s 1.1s forwards;">★★★★★ &nbsp;Weekends fill fast — reserve your date early</p>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -1192,38 +1218,22 @@
             </div>
           </div>
 
-          <!-- Stripe payment fields (placeholder — connect your Stripe keys) -->
-          <label>Cardholder Name</label>
-          <input type="text" placeholder="Alexandra Hartwell" style="margin-bottom: 20px;">
-
-          <label>Card Number</label>
-          <div style="position:relative;">
-            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" 
-              maxlength="19"
-              oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(.{4})/g,'$1 ').trim()"
-              style="width:100%; padding-right:140px; letter-spacing:0.1em;">
-            <span class="stripe-badge" style="position:absolute; right:12px; top:50%; transform:translateY(-50%);">Stripe Secured</span>
-          </div>
-
-          <div class="form-row" style="gap:12px; margin-bottom: 0;">
-            <div class="form-group" style="margin:0;">
-              <label>Expiry</label>
-              <input type="text" placeholder="MM / YY">
-            </div>
-            <div class="form-group" style="margin:0;">
-              <label>CVC</label>
-              <input type="text" placeholder="•••">
+          <!-- Secure payment handoff to Stripe -->
+          <div style="text-align:center; padding: 8px 0 4px;">
+            <div style="display:inline-flex; align-items:center; gap:10px; border:1px solid var(--border); padding: 12px 24px; margin-bottom: 20px;">
+              <span style="color:var(--gold); font-size:1rem;">🔒</span>
+              <span style="font-size:0.7rem; letter-spacing:0.12em; color:var(--text-muted);">Payment handled securely by <strong style="color:var(--cream);">Stripe</strong> — you'll enter card details on their encrypted checkout page</span>
             </div>
           </div>
 
-          <p class="payment-note" style="margin-top: 20px;">
-            Your deposit is protected by 256-bit SSL encryption.<br>
-            By proceeding you agree to our <a href="#">Terms & Cancellation Policy</a>.
+          <p class="payment-note" style="margin-top: 4px;">
+            256-bit SSL encryption · All major cards accepted<br>
+            By proceeding you agree to our Terms &amp; Cancellation Policy: free cancellation up to 30 days before your charter.
           </p>
 
           <div class="form-nav">
             <button class="btn-form-back" onclick="goToStep(2)">← Back</button>
-            <button class="btn-form-next" onclick="submitBooking()">Confirm & Pay Deposit</button>
+            <button class="btn-form-next" onclick="submitBooking()">Continue to Secure Payment →</button>
           </div>
         </div>
       </div>
@@ -1308,7 +1318,7 @@
     </div>
     <div class="testi-card reveal reveal-delay-1">
       <div class="testi-stars">★ ★ ★ ★ ★</div>
-      <p class="testi-text">We used Azure for a client event and the response was extraordinary. The crew's professionalism and the vessel's elegance spoke for themselves.</p>
+      <p class="testi-text">We used Iron Tide for a client event and the response was extraordinary. The crew's professionalism and the vessel's elegance spoke for themselves.</p>
       <div class="testi-author">Marcus T.</div>
       <div class="testi-location">Corporate Charter · Celeste</div>
     </div>
