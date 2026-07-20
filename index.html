@@ -671,15 +671,37 @@
   @media (max-width: 900px) {
     nav { padding: 20px 24px; }
     .nav-links { display: none; }
-    section { padding: 80px 24px; }
+    section { padding: 64px 20px; }
     .hero-content { padding: 0 24px; }
-    .fleet-grid { grid-template-columns: 1fr; }
     .exp-layout, .booking-layout { grid-template-columns: 1fr; }
     .testimonials-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
     .form-group.full { grid-column: span 1; }
     .compass { display: none; }
+
+    /* Charter cards: stack all 6 vertically, natural height, nothing clipped */
+    .fleet-grid { grid-template-columns: 1fr !important; gap: 12px; }
+    .yacht-card {
+      min-height: unset !important;
+      height: auto !important;
+      aspect-ratio: unset !important;
+    }
+    .yacht-card-content {
+      position: relative !important;
+      inset: unset !important;
+      top: unset !important; bottom: unset !important;
+      left: unset !important; right: unset !important;
+      padding: 26px 22px;
+      height: auto;
+    }
+    .yacht-card-name { font-size: 1.5rem; line-height: 1.2; }
+    .yacht-card-desc { font-size: 0.75rem; line-height: 1.8; margin-top: 12px; }
+    .yacht-card-specs { gap: 10px; flex-wrap: wrap; }
+    .yacht-card-price { margin-top: 20px; }
+    .booking-form { padding: 28px 18px; }
+    .section-title { font-size: 2.2rem; }
+    .custom-trip-cta { flex-direction: column; align-items: flex-start !important; padding: 32px 24px !important; }
   }
 
   /* GALLERY */
@@ -833,7 +855,7 @@
     <h2 class="section-title">Ethel <em>Jane</em></h2>
     <p>One exceptional vessel. Three ways to experience her. Ethel Jane is a classic 33-foot Regal 3360 Window Express based at the Washington Channel — intimate enough for two, spacious enough for eight, and impeccably maintained for every occasion, and dressed for the occasion every time she leaves the dock.</p>
   </div>
-  <div class="fleet-grid" style="grid-template-columns: repeat(3,1fr); gap: 2px;">
+  <div class="fleet-grid">
 
     <!-- Row 1, Card 1: Daytime Sightseeing -->
     <div class="yacht-card yacht-1 reveal">
@@ -922,7 +944,7 @@
   </div>
 
   <!-- Row 2 -->
-  <div class="fleet-grid" style="grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 2px;">
+  <div class="fleet-grid" style="margin-top: 2px;">
 
     <!-- Row 2, Card 1: Dinner Cruise -->
     <div class="yacht-card yacht-1 reveal">
@@ -944,7 +966,7 @@
         <div class="yacht-card-footer"><div class="yacht-card-desc">Bring your own spread or let us arrange catering pick-up from The Wharf — DC's best waterfront restaurants are steps from the dock. A festive, social evening on the water with the city lights as your backdrop.</div>
         <div class="yacht-card-price">
           <div>
-            <div class="price-amount">$1,600</div></div>
+            <div class="price-amount">$1,800</div></div>
             <div class="price-unit">per charter</div>
           </div>
           <button class="card-btn" onclick="window.open('https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802', '_blank')">Reserve</button>
@@ -1119,45 +1141,51 @@
         <div class="form-panel" id="panel2">
           <label style="margin-bottom: 16px;">Select Your Experience</label>
           <div class="yacht-options">
-            <div class="yacht-option" onclick="selectOption(this, 'Daytime Cruise · Ethel Jane', 800)" id="opt1">
+            <div class="yacht-option" onclick="selectOption(this, 'Daytime Cruise · Ethel Jane', 900)" id="opt1">
               <div>
                 <div class="yo-name">Daytime Cruise</div>
                 <div class="yo-spec">3 hrs · Up to 8 Guests · Daytime</div>
+                <div class="yo-desc">Scenic cruise past the monuments, Kennedy Center, and Georgetown waterfront. Perfect for families and first-timers.</div>
               </div>
-              <div class="yo-price">$800</div>
+              <div class="yo-price">$900</div>
             </div>
-            <div class="yacht-option" onclick="selectOption(this, 'Monument Sunset Cruise · Ethel Jane', 950)" id="opt2">
+            <div class="yacht-option" onclick="selectOption(this, 'Monument Sunset · Ethel Jane', 1050)" id="opt2">
               <div>
-                <div class="yo-name">Monument Sunset Cruise</div>
+                <div class="yo-name">Monument Sunset</div>
                 <div class="yo-spec">3 hrs · Up to 8 Guests · Evening</div>
+                <div class="yo-desc">The classic Iron Tide experience. Monuments glowing at dusk, champagne and charcuterie included.</div>
               </div>
-              <div class="yo-price">$950</div>
+              <div class="yo-price">$1,050</div>
             </div>
-            <div class="yacht-option" onclick="selectOption(this, 'Golden Hour Cruise · Ethel Jane', 1150)" id="opt3">
+            <div class="yacht-option" onclick="selectOption(this, 'Golden Hour · Ethel Jane', 1200)" id="opt3">
               <div>
-                <div class="yo-name">Golden Hour Cruise</div>
+                <div class="yo-name">Golden Hour</div>
                 <div class="yo-spec">4 hrs · Up to 8 Guests · Late Afternoon</div>
+                <div class="yo-desc">Late afternoon into dusk. The go-to for birthdays, bachelorettes, and celebrations.</div>
               </div>
-              <div class="yo-price">$1,150</div>
+              <div class="yo-price">$1,200</div>
             </div>
-            <div class="yacht-option" onclick="selectOption(this, 'Dinner Cruise · Ethel Jane', 1500)" id="opt4">
+            <div class="yacht-option" onclick="selectOption(this, 'Dinner Cruise · Ethel Jane', 1800)" id="opt4">
               <div>
                 <div class="yo-name">Dinner Cruise</div>
                 <div class="yo-spec">4 hrs · Up to 8 Guests · Evening</div>
-              </div>
-              <div class="yo-price">$1,500</div>
-            </div>
-            <div class="yacht-option" onclick="selectOption(this, 'Potomac Escape · Ethel Jane', 1800)" id="opt5">
-              <div>
-                <div class="yo-name">Potomac Escape</div>
-                <div class="yo-spec">6 hrs · Up to 8 Guests · Full Day</div>
+                <div class="yo-desc">Bring your own food or arrange catering from The Wharf. A festive social evening on the water.</div>
               </div>
               <div class="yo-price">$1,800</div>
             </div>
+            <div class="yacht-option" onclick="selectOption(this, 'Potomac Escape · Ethel Jane', 1600)" id="opt5">
+              <div>
+                <div class="yo-name">Potomac Escape</div>
+                <div class="yo-spec">6 hrs · Up to 8 Guests · Full Day</div>
+                <div class="yo-desc">Head south toward Alexandria or Mount Vernon. Anchor, swim, catered lunch on deck.</div>
+              </div>
+              <div class="yo-price">$1,600</div>
+            </div>
             <div class="yacht-option" onclick="selectOption(this, &quot;Chef's Table · Ethel Jane&quot;, 2200)" id="opt6">
               <div>
-                <div class="yo-name">Chef's Table on the Water</div>
+                <div class="yo-name">Chef's Table</div>
                 <div class="yo-spec">4 hrs · 2–6 Guests · Intimate</div>
+                <div class="yo-desc">Private chef, bespoke multi-course dinner, fine wine pairings. DC's most intimate dining experience.</div>
               </div>
               <div class="yo-price">$2,200</div>
             </div>
@@ -1614,20 +1642,23 @@
   }
 
   function submitBooking() {
-    var stripeLinks = {
-      'Daytime Cruise · Ethel Jane': 'https://buy.stripe.com/6oU3cv84j1ls4PL4RV8k800',
-      'Monument Sunset · Ethel Jane': 'https://buy.stripe.com/7sYaEXbgv2pw2HDbgj8k801',
-      'Golden Hour · Ethel Jane': 'https://buy.stripe.com/28E9AT70f7JQ4PL3NR8k803',
-      'Dinner Cruise · Ethel Jane': 'https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802',
-      'Potomac Escape · Ethel Jane': 'https://buy.stripe.com/aFabJ1doDaW2cid7038k805',
-      'Chefs Table · Ethel Jane': 'https://buy.stripe.com/cNifZhfwLd4a2HD1FJ8k804'
-    };
-    var link = stripeLinks[selectedVessel];
+    // Match charter by keyword - robust against naming differences
+    var v = (selectedVessel || '');
+    var link = null;
+    if (v.indexOf('Daytime') !== -1) link = 'https://buy.stripe.com/6oU3cv84j1ls4PL4RV8k800';
+    else if (v.indexOf('Sunset') !== -1) link = 'https://buy.stripe.com/7sYaEXbgv2pw2HDbgj8k801';
+    else if (v.indexOf('Golden') !== -1) link = 'https://buy.stripe.com/28E9AT70f7JQ4PL3NR8k803';
+    else if (v.indexOf('Dinner') !== -1) link = 'https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802';
+    else if (v.indexOf('Escape') !== -1) link = 'https://buy.stripe.com/aFabJ1doDaW2cid7038k805';
+    else if (v.indexOf('Chef') !== -1) link = 'https://buy.stripe.com/cNifZhfwLd4a2HD1FJ8k804';
+
     if (link) {
-      window.open(link, '_blank');
+      // Same-tab navigation - no popup blockers, seamless handoff to Stripe
+      window.location.href = link;
     } else {
-      document.getElementById('formContent').style.display = 'none';
-      document.getElementById('confirmation').classList.add('show');
+      // No charter selected - send them back to step 2 with a nudge
+      alert('Please select a charter experience before continuing to payment.');
+      goToStep(2);
     }
   }
 
