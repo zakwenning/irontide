@@ -842,7 +842,7 @@
       <a href="#booking" class="btn-primary">Book Your Charter</a>
       <a href="#fleet" class="btn-ghost">Explore Experiences</a>
     </div>
-    <p style="margin-top: 28px; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--gold-light); opacity: 0; animation: fadeUp 1s 1.1s forwards;">★★★★★ &nbsp;Weekends fill fast — reserve your date early</p>
+    <p style="margin-top: 28px; font-size: 0.7rem; letter-spacing: 0.12em; color: var(--gold-light); opacity: 0; animation: fadeUp 1s 1.1s forwards;">Launching soon on the Potomac — call or email to join the waitlist</p>
   </div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -882,7 +882,7 @@
             <div class="price-amount">$900</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="window.open('https://buy.stripe.com/6oU3cv84j1ls4PL4RV8k800', '_blank')">Reserve</button>
+          <button class="card-btn" onclick="reserveCharter('https://buy.stripe.com/6oU3cv84j1ls4PL4RV8k800')">Reserve</button>
         </div>
       </div>
     </div>
@@ -910,7 +910,7 @@
             <div class="price-amount">$1,050</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="window.open('https://buy.stripe.com/7sYaEXbgv2pw2HDbgj8k801', '_blank')">Reserve</button>
+          <button class="card-btn" onclick="reserveCharter('https://buy.stripe.com/7sYaEXbgv2pw2HDbgj8k801')">Reserve</button>
         </div>
       </div>
     </div>
@@ -938,7 +938,7 @@
             <div class="price-amount">$1,200</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="window.open('https://buy.stripe.com/28E9AT70f7JQ4PL3NR8k803', '_blank')">Reserve</button>
+          <button class="card-btn" onclick="reserveCharter('https://buy.stripe.com/28E9AT70f7JQ4PL3NR8k803')">Reserve</button>
         </div>
       </div>
     </div>
@@ -971,7 +971,7 @@
             <div class="price-amount">$1,800</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="window.open('https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802', '_blank')">Reserve</button>
+          <button class="card-btn" onclick="reserveCharter('https://buy.stripe.com/6oU4gz0BR0ho5TP5VZ8k802')">Reserve</button>
         </div>
       </div>
     </div>
@@ -999,7 +999,7 @@
             <div class="price-amount">$1,600</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="window.open('https://buy.stripe.com/aFabJ1doDaW2cid7038k805', '_blank')">Reserve</button>
+          <button class="card-btn" onclick="reserveCharter('https://buy.stripe.com/aFabJ1doDaW2cid7038k805')">Reserve</button>
         </div>
       </div>
     </div>
@@ -1027,7 +1027,7 @@
             <div class="price-amount">$2,200</div></div>
             <div class="price-unit">per charter</div>
           </div>
-          <button class="card-btn" onclick="window.open('https://buy.stripe.com/cNifZhfwLd4a2HD1FJ8k804', '_blank')">Reserve</button>
+          <button class="card-btn" onclick="reserveCharter('https://buy.stripe.com/cNifZhfwLd4a2HD1FJ8k804')">Reserve</button>
         </div>
       </div>
     </div>
@@ -1055,6 +1055,11 @@
   <div class="reveal">
     <p class="section-label">Reserve Your Voyage</p>
     <h2 class="section-title">Begin Your <em>Journey</em></h2>
+    <!-- BOOKING PAUSED NOTICE: delete this div when BOOKINGS_OPEN is set to true -->
+    <div id="bookingNotice" style="margin-top: 32px; border: 1px solid var(--gold); background: rgba(201,168,76,0.07); padding: 28px 32px; max-width: 720px;">
+      <div style="font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px;">Bookings Opening Soon</div>
+      <p style="font-size: 0.85rem; color: var(--cream); line-height: 1.9;">Iron Tide Charters is preparing for launch and not yet accepting reservations. Want first access to our opening dates? Call or text <a href="tel:8132941234" style="color: var(--gold); text-decoration: none;">(813) 294-1234</a> or email <a href="mailto:info@irontidecharters.com" style="color: var(--gold); text-decoration: none;">info@irontidecharters.com</a> to join the waitlist.</p>
+    </div>
   </div>
 
   <div class="booking-layout">
@@ -1565,6 +1570,21 @@
   </div>
 </footer>
 <script>
+  // ============================================
+  // MASTER BOOKING SWITCH
+  // Set to true when ready to accept reservations.
+  // That is the ONLY change needed to go live.
+  // ============================================
+  var BOOKINGS_OPEN = false;
+
+  function reserveCharter(stripeUrl) {
+    if (BOOKINGS_OPEN) {
+      window.location.href = stripeUrl;
+    } else {
+      document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   // Cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
@@ -1644,6 +1664,10 @@
   }
 
   function submitBooking() {
+    if (!BOOKINGS_OPEN) {
+      document.getElementById('bookingNotice').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
     // Match charter by keyword - robust against naming differences
     var v = (selectedVessel || '');
     var link = null;
